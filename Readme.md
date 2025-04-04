@@ -94,9 +94,14 @@ put swarm.pem      # Upload swarm.pem from local to remote machine
 ## Image for Reference
 Getting paths:
 
+
+Remote machine:    
 ![Image](https://github.com/user-attachments/assets/3ac2df54-7633-48ce-baf4-d6ad036fcd88)
+
+
+Local machine:  
 ![Image](https://github.com/user-attachments/assets/17beb1bd-46d1-45c8-8e23-1e8e9d25db57)
 
-Sample Image:
 
+Sample Image:
 ![Image](https://github.com/user-attachments/assets/fb43276b-8bc2-4f52-b67e-22ce3d58788c)
