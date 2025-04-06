@@ -9,26 +9,36 @@ Guide for connecting to remote systems using SSH and transferring files using SF
 
 ## SSH Connection
 
-Connect to a remote system using SSH:
-
+Connect to a remote system using SSH:  
+(example command use original command given by your vps provider)
 ```bash
 ssh -p 12345 root@12.123.123.12 -L 8080:localhost:8080  # Command given by your vps provider to connect to remote pc
 ```
-## File Transfer with SFTP
+**Structure**  
+- ***ssh*** - This is the command to start a Secure Shell (SSH) connection
+- **-p 12345** - This tells SSH to connect to port 12345 on the remote server
+- **root@12.123.123.12** - This specifies the username and IP address of the remote server:
+  - root — the user you're logging in as
+  - 12.123.123.12 — the remote server's IP address
+- It creates a tunnel from your local machine's port 8080 to the remote machine's port 8080, via SSH.
+  - First (8080) - The Local port on your computer
+  - Second (8080) - The Port on remote server you want to connect to
+
+## File Transfer with SFTP (How to construct SFTP command from SSH command given to you by VPS provider)
 
 To transfer files between your local and remote machines, open a new terminal in local machine and use SFTP:  
 
-Copy the ssh command and:
-- Remove everything after IP
+Copy your ssh command and:
+- Remove everything after IP address
 - Change ssh to sftp
 - Change small p to capital P 
 
 ```bash
-sftp -P 12345 root@12.123.123.12
+sftp -P 12345 root@12.123.123.12  #Constructed from example command above
 ```
 
 ## Get Current Folder
-After connecting to sftp you need to have two paths:
+After connecting to sftp you need to have two paths(file locations):
 
 - Where you have swarm.pem saved on remote machine 
 - Where you need to save swarm.pem on local machine
@@ -38,7 +48,14 @@ Navigate to folders whose paths you need, paste this command and copy paths prin
 ```bash
 pwd
 ```
-## Navigation Commands in SFTP
+## Navigation Commands in SFTP (After Connecting to SFTP)  
+
+How it looks after connecting to SFTP:  
+
+![Image](https://github.com/user-attachments/assets/bcd99798-24d6-489b-8d42-aba23412464b)
+
+Now continue with commands below:
+
 ```bash
 cd "path on remote machine" # Example : /root/rl-swarm
 lcd "path on local machine" # Example: /mnt/e/key
